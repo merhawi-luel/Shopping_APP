@@ -1,0 +1,13 @@
+export default function SortSelect({ value, onChange }) {
+  return (
+    <select
+      className="shop-sort"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    >
+      <option value="default">Sort: default</option>
+      <option value="price-asc">Price: low to high</option>
+      <option value="price-desc">Price: high to low</option>
+    </select>
+  );
+}

@@ -1,4 +1,5 @@
 import {Routes,Route} from "react-router-dom"
+import { CartProvider } from "./context/CartContext"
 
 import Cart from "./pages/Cart"
 import Home from  "./pages/Home"
@@ -12,6 +13,7 @@ export default function   App() {
 
   return (
     <>
+    <CartProvider>
     <NavBar/>
           <Routes>
                     <Route path="/" element={<Home/>}/>
@@ -20,6 +22,7 @@ export default function   App() {
                     <Route path="/shop/:id" element={<ProductDetail/>}/>
                     <Route path="*" element={<NotFound/>}/>
           </Routes>
+    </CartProvider>
   
     </>
 

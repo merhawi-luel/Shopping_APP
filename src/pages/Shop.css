@@ -1,0 +1,251 @@
+/* shop.css — Verdant Apothecary */
+
+/* ── Page layout ─────────────────────────────────────────────────────────── */
+
+.shop-page {
+  padding: 60px 80px 100px;
+  background: #f5f0e8;
+  min-height: 100vh;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  color: #1c1a16;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+
+.shop-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  border-radius: 2px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* Search */
+
+.shop-search {
+  flex: 1 1 200px;
+  padding: 9px 12px;
+  background: #f5f0e8;
+  border: 1px solid #d0c8b4;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1c1a16;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.shop-search::placeholder {
+  color: #7a7060;
+}
+
+.shop-search:focus {
+  border-color: #2d4a2f;
+}
+
+/* Select controls */
+
+.shop-filter,
+.shop-sort {
+  padding: 9px 32px 9px 12px;
+  background: #f5f0e8;
+  border: 1px solid #d0c8b4;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1c1a16;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a7060'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  transition: border-color 0.15s;
+}
+
+.shop-filter:focus,
+.shop-sort:focus {
+  border-color: #2d4a2f;
+}
+
+/* ── Error state ─────────────────────────────────────────────────────────── */
+
+.shop-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 0;
+  text-align: center;
+  font-size: 15px;
+  color: #7a7060;
+  font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.shop-error button {
+  padding: 9px 24px;
+  background: transparent;
+  border: 1px solid #2d4a2f;
+  border-radius: 2px;
+  color: #2d4a2f;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.shop-error button:hover {
+  background: #2d4a2f;
+  color: #f5f0e8;
+}
+
+/* ── Product grid ────────────────────────────────────────────────────────── */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 3px;
+}
+
+/* ── Skeleton cards ──────────────────────────────────────────────────────── */
+
+.skeleton-card {
+  height: 380px;
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245, 240, 232, 0.6) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1.5s infinite;
+  transform: translateX(-100%);
+}
+
+@keyframes shimmer {
+  to { transform: translateX(100%); }
+}
+
+/* ── Product card ────────────────────────────────────────────────────────── */
+
+.product-card {
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(28, 26, 22, 0.09);
+}
+
+/* Product image */
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #d8d0c0;
+  transition: transform 0.4s;
+}
+
+.product-card:hover img {
+  transform: scale(1.04);
+}
+
+/* Product title */
+
+.product-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1c1a16;
+  line-height: 1.3;
+  padding: 16px 18px 4px;
+}
+
+/* Product price */
+
+.product-price {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1c1a16;
+  letter-spacing: -0.01em;
+  padding: 0 18px 16px;
+  margin-top: auto;
+}
+
+/* Add to cart button */
+
+.product-card button {
+  margin: 0 18px 18px;
+  padding: 10px 0;
+  width: calc(100% - 36px);
+  background: transparent;
+  border: 1px solid #2d4a2f;
+  border-radius: 2px;
+  color: #2d4a2f;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.product-card button:hover {
+  background: #2d4a2f;
+  color: #f5f0e8;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .shop-page {
+    padding: 40px 24px 80px;
+  }
+
+  .shop-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .shop-filter,
+  .shop-sort {
+    width: 100%;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
