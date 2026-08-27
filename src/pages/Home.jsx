@@ -21,7 +21,7 @@ export default function Home() {
         <h2>Shop by Category</h2>
         <div className="category-grid-items">
           {categories.map((category) => (
-            <Link to="/shop" className="category-card" key={category}>
+            <Link to={`/shop?category=${encodeURIComponent(category)}`} className="category-card" key={category}>
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </Link>
           ))}
