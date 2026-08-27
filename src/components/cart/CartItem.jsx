@@ -1,37 +1,31 @@
-import { Link } from "react-router-dom";
-import useCart from "../hooks/useCart";
-import CartItem from "../components/cart/CartItem";
-import OrderSummary from "../components/cart/OrderSummary";
-
-export default function Cart() {
-  const { cartItems, dispatch } = useCart();
-
-  if (cartItems.length === 0) {
-    return (
-      <div className="empty-cart">
-        <p>Your cart is empty.</p>
-        <Link to="/shop">Continue shopping</Link>
-      </div>
-    );
+export default function CartItem({ item, dispatch }) {
+  function handleIncrease() {
+    dispatch({ type: "UPDATE_QUANTITY", payload: { id: item.id, quantity: item.quantity + 1 } });
   }
 
-  function handleClearCart() {
-    if (window.confirm("Are you sure you want to clear your cart?")) {
-      dispatch({ type: "CLEAR_CART" });
+  function handleDecrease() {
+    if (item.quantity > 1) {
+      dispatch({ type: "UPDATE_QUANTITY", payload: { id: item.id, quantity: item.quantity - 1 } });
     }
   }
 
+  function handleRemove() {
+    dispatch({ type: "REMOVE_ITEM", payload: { id: item.id } });
+  }
+
   return (
-    <div className="cart-page">
-      <h1>Your Cart</h1>
+    <div className="cart-item">
+      <div className="cart-item-info">
+        <h3>{item.name}</h3>
+        <p>${item.price}</p>
+      </div>
 
-      {cartItems.map((item) => (
-        <CartItem key={item.id} item={item} dispatch={dispatch} />
-      ))}
-
-      <button onClick={handleClearCart}>Clear Cart</button>
-
-      <OrderSummary cartItems={cartItems} />
+      <div className="cart-item-controls">
+        <button onClick={handleDecrease}>-</button>
+        <span>{item.quantity}</span>
+        <button onClick={handleIncrease}>+</button>
+        <button onClick={handleRemove}>Remove</button>
+      </div>
     </div>
   );
 }

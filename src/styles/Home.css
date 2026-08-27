@@ -1,0 +1,283 @@
+/* Home.css — Verdant Apothecary */
+
+/* ── Page layout ─────────────────────────────────────────────────────────── */
+
+.home-page {
+  padding: 80px 80px 100px;
+  background: #f5f0e8;
+  min-height: 100vh;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  color: #1c1a16;
+}
+
+/* ── Hero banner ─────────────────────────────────────────────────────────── */
+
+.hero-banner {
+  background: linear-gradient(135deg, #2d4a2f 0%, #1c3320 100%);
+  color: #f5f0e8;
+  text-align: center;
+  padding: 80px 40px;
+  margin-bottom: 64px;
+  border: 1px solid #243d26;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(245, 240, 232, 0.06) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.hero-banner h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 44px;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  position: relative;
+}
+
+.hero-banner p {
+  font-size: 18px;
+  color: #c4c0b6;
+  margin: 0 0 32px;
+  position: relative;
+  font-weight: 300;
+}
+
+.hero-banner a {
+  display: inline-block;
+  background: transparent;
+  color: #f5f0e8;
+  text-decoration: none;
+  padding: 12px 36px;
+  border: 1px solid #f5f0e8;
+  border-radius: 2px;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+}
+
+.hero-banner a:hover {
+  background: #f5f0e8;
+  color: #2d4a2f;
+}
+
+/* ── Section headings ────────────────────────────────────────────────────── */
+
+.category-grid h2,
+.featured-products h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: #1c1a16;
+  margin: 0 0 32px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Category grid ───────────────────────────────────────────────────────── */
+
+.category-grid {
+  margin-bottom: 72px;
+}
+
+.category-grid-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 3px;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ede8de;
+  color: #1c1a16;
+  text-decoration: none;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  padding: 32px 24px;
+  border: 1px solid #d0c8b4;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+  background: #e4ddd0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(28, 26, 22, 0.08);
+}
+
+/* ── Featured products ───────────────────────────────────────────────────── */
+
+.featured-products {
+  margin-bottom: 72px;
+}
+
+.featured-products .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 3px;
+}
+
+/* Product card */
+
+.featured-products .product-card {
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.featured-products .product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(28, 26, 22, 0.09);
+}
+
+/* Product image */
+
+.featured-products .product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #d8d0c0;
+  transition: transform 0.4s;
+}
+
+.featured-products .product-card:hover img {
+  transform: scale(1.04);
+}
+
+/* Product title */
+
+.featured-products .product-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1c1a16;
+  line-height: 1.3;
+  padding: 16px 18px 4px;
+}
+
+/* Product price */
+
+.featured-products .product-price {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1c1a16;
+  letter-spacing: -0.01em;
+  padding: 0 18px 18px;
+  margin-top: auto;
+}
+
+/* ── CTA section ─────────────────────────────────────────────────────────── */
+
+.home-cta {
+  text-align: center;
+  padding: 64px 40px;
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  margin-bottom: 0;
+}
+
+.home-cta h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: #1c1a16;
+  margin: 0 0 12px;
+}
+
+.home-cta p {
+  font-size: 16px;
+  color: #7a7060;
+  margin: 0 0 28px;
+}
+
+.home-cta a {
+  display: inline-block;
+  padding: 12px 36px;
+  background: #2d4a2f;
+  color: #f5f0e8;
+  text-decoration: none;
+  border-radius: 2px;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background 0.15s, color 0.15s;
+}
+
+.home-cta a:hover {
+  background: #1c3320;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .home-page {
+    padding: 40px 24px 80px;
+  }
+
+  .hero-banner {
+    padding: 60px 24px;
+  }
+
+  .hero-banner h1 {
+    font-size: 32px;
+  }
+
+  .hero-banner p {
+    font-size: 16px;
+  }
+
+  .category-grid-items {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .featured-products .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-banner h1 {
+    font-size: 26px;
+  }
+
+  .category-grid-items {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .featured-products .product-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .home-cta {
+    padding: 48px 24px;
+  }
+}
