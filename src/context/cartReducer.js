@@ -19,6 +19,15 @@ export default function cartReducer(state, action) {
 
     }
 
+case "UPDATE_QUANTITY":{
+  return state.map(item =>
+    item.id === action.payload.id
+      ? { ...item, quantity:Math.max(1,action.payload.quantity) }
+      : item
+  );
+
+}
+
     default:
       return state;
   }
