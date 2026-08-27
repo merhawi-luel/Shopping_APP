@@ -24,7 +24,6 @@ export default function Shop() {
     p.description?.toLowerCase().includes(search.toLowerCase())
   );
 });
-
   if (sort === "price-asc") filtered = [...filtered].sort((a, b) => a.price - b.price);
   if (sort === "price-desc") filtered = [...filtered].sort((a, b) => b.price - a.price);
 

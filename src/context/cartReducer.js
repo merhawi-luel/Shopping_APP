@@ -27,6 +27,9 @@ case "UPDATE_QUANTITY":{
   );
 
 }
+case "CLEAR_CART":{
+  return [];
+}
 
     default:
       return state;
