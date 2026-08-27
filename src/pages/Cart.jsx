@@ -26,13 +26,20 @@ export default function Cart() {
     <div className="cart-page">
       <h1>Your Cart</h1>
 
-      {cartItems.map((item) => (
-        <CartItem key={item.id} item={item} dispatch={dispatch} />
-      ))}
+      <div className="cart-layout">
+        <div className="cart-items-col">
+          <div className="cart-items-list">
+            {cartItems.map((item) => (
+              <CartItem key={item.id} item={item} dispatch={dispatch} />
+            ))}
+          </div>
+          <button className="clear-cart-btn" onClick={handleClearCart}>Clear Cart</button>
+        </div>
 
-      <button onClick={handleClearCart}>Clear Cart</button>
-
-      <OrderSummary cartItems={cartItems} />
+        <aside className="cart-summary-col">
+          <OrderSummary cartItems={cartItems} />
+        </aside>
+      </div>
     </div>
   );
 }

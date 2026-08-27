@@ -9,10 +9,24 @@ export default function OrderSummary({ cartItems }) {
 
   return (
     <div className="order-summary">
-      <p>Items: {itemCount}</p>
-      <p>Subtotal: ${subtotal.toFixed(2)}</p>
-      <p>Tax (15%): ${tax.toFixed(2)}</p>
-      <p>Total: ${total.toFixed(2)}</p>
+      <h2>Order Summary</h2>
+      <div className="order-summary-row">
+        <span>Items</span>
+        <span>{itemCount}</span>
+      </div>
+      <div className="order-summary-row">
+        <span>Subtotal</span>
+        <span>${subtotal.toFixed(2)}</span>
+      </div>
+      <div className="order-summary-row">
+        <span>Tax (15%)</span>
+        <span>${tax.toFixed(2)}</span>
+      </div>
+      <div className="order-summary-total">
+        <span>Total</span>
+        <span>${total.toFixed(2)}</span>
+      </div>
+      <button>Proceed to Checkout</button>
     </div>
   );
 }
