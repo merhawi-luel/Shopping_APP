@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function useProducts() {
+export default function useProducts(category) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +10,12 @@ export default function useProducts() {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get("https://fakestoreapi.com/products");
+      const url =
+        !category || category === "All categories"
+          ? "https://fakestoreapi.com/products"
+          : `https://fakestoreapi.com/products/category/${category}`;
+
+      const res = await axios.get(url);
       setProducts(res.data);
     } catch (err) {
       setError(err.message);
@@ -21,7 +26,7 @@ export default function useProducts() {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [category]);
 
   return { products, loading, error, refetch: fetchProducts };
 }
