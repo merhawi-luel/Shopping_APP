@@ -1,39 +1,37 @@
-export default function CartItem({ item, dispatch }) {
-  return (
-    <div className="cart-item">
-      <img src={item.image} alt={item.title} />
-      <p>{item.title}</p>
-      <p>${item.price}</p>
+import { Link } from "react-router-dom";
+import useCart from "../hooks/useCart";
+import CartItem from "../components/cart/CartItem";
+import OrderSummary from "../components/cart/OrderSummary";
 
-      <div className="quantity-stepper">
-        <button
-          onClick={() =>
-            dispatch({
-              type: "UPDATE_QUANTITY",
-              payload: { id: item.id, quantity: item.quantity - 1 },
-            })
-          }
-        >
-          −
-        </button>
+export default function Cart() {
+  const { cartItems, dispatch } = useCart();
 
-        <span>{item.quantity}</span>
-
-        <button onClick={()=>dispatch({
-              type: "UPDATE_QUANTITY",
-              payload: { id: item.id, quantity: item.quantity + 1 },
-            })}>
-          +
-        </button>
+  if (cartItems.length === 0) {
+    return (
+      <div className="empty-cart">
+        <p>Your cart is empty.</p>
+        <Link to="/shop">Continue shopping</Link>
       </div>
+    );
+  }
 
-      <button
-        onClick={() =>
-          dispatch({ type: "REMOVE_ITEM", payload: { id: item.id } })
-        }
-      >
-        Remove
-      </button>
+  function handleClearCart() {
+    if (window.confirm("Are you sure you want to clear your cart?")) {
+      dispatch({ type: "CLEAR_CART" });
+    }
+  }
+
+  return (
+    <div className="cart-page">
+      <h1>Your Cart</h1>
+
+      {cartItems.map((item) => (
+        <CartItem key={item.id} item={item} dispatch={dispatch} />
+      ))}
+
+      <button onClick={handleClearCart}>Clear Cart</button>
+
+      <OrderSummary cartItems={cartItems} />
     </div>
   );
 }
