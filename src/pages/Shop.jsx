@@ -18,14 +18,12 @@ export default function Shop() {
     ...Array.from(new Set((products || []).map((p) => p.category).filter(Boolean))),
   ];
 
-  let filtered = (products || []).filter((p) => {
-    const matchCat =
-      category === "All categories" || p.category === category;
-    const matchSearch =
-      p.title?.toLowerCase().includes(search.toLowerCase()) ||
-      p.description?.toLowerCase().includes(search.toLowerCase());
-    return matchCat && matchSearch;
-  });
+ let filtered = (products || []).filter((p) => {
+  return (
+    p.title?.toLowerCase().includes(search.toLowerCase()) ||
+    p.description?.toLowerCase().includes(search.toLowerCase())
+  );
+});
 
   if (sort === "price-asc") filtered = [...filtered].sort((a, b) => a.price - b.price);
   if (sort === "price-desc") filtered = [...filtered].sort((a, b) => b.price - a.price);
