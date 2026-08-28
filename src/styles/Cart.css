@@ -36,25 +36,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  padding: 120px 24px;
+  gap: 20px;
+  padding: 80px 40px;
   text-align: center;
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
 }
 
 .empty-cart p {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-size: 20px;
-  color: #7a7060;
+  color: #1c1a16;
+  margin: 0;
 }
 
 .empty-cart a {
   display: inline-block;
   padding: 12px 32px;
-  background: transparent;
+  background: #2d4a2f;
   border: 1px solid #2d4a2f;
   border-radius: 2px;
-  color: #2d4a2f;
+  color: #f5f0e8;
   text-decoration: none;
   font-family: 'Source Sans 3', system-ui, sans-serif;
   font-size: 14px;
@@ -64,7 +67,8 @@
 }
 
 .empty-cart a:hover {
-  background: #2d4a2f;
+  background: #1c3320;
+  border-color: #1c3320;
   color: #f5f0e8;
 }
 

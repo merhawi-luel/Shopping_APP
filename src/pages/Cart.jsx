@@ -9,9 +9,12 @@ export default function Cart() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="empty-cart">
-        <p>Your cart is empty.</p>
-        <Link to="/shop">Continue shopping</Link>
+      <div className="cart-page">
+        <h1>Your Cart</h1>
+        <div className="empty-cart">
+          <p>Your cart is empty.</p>
+          <Link to="/shop">Continue shopping</Link>
+        </div>
       </div>
     );
   }
