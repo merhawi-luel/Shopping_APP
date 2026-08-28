@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound"
 import ProductDetail from "./pages/ProductDetail"
 import Shop from "./pages/Shop"
 import NavBar from "./components/layout/NavBar"
+import Footer from "./components/layout/Footer"
 import './App.css'
 
 export default function   App() {
@@ -22,6 +23,7 @@ export default function   App() {
                     <Route path="/shop/:id" element={<ProductDetail/>}/>
                     <Route path="*" element={<NotFound/>}/>
           </Routes>
+    <Footer/>
     </CartProvider>
   
     </>

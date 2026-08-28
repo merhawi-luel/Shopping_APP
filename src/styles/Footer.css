@@ -1,0 +1,13 @@
+.footer {
+  padding: 32px 24px;
+  text-align: center;
+  background: #2d4a2f;
+  color: #d0c8b4;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.footer p {
+  margin: 0;
+}
