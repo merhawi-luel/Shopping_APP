@@ -1,0 +1,368 @@
+/* ProductDetail.css — Verdant Apothecary */
+
+/* ── Page layout ─────────────────────────────────────────────────────────── */
+
+.product-detail-page {
+  padding: 80px 80px 100px;
+  background: #f5f0e8;
+  min-height: 100vh;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  color: #1c1a16;
+}
+
+/* ── Back link ───────────────────────────────────────────────────────────── */
+
+.pd-back {
+  display: inline-block;
+  margin-bottom: 32px;
+  color: #2d4a2f;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+}
+
+.pd-back:hover {
+  color: #1c3320;
+}
+
+/* ── Product detail grid ─────────────────────────────────────────────────── */
+
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── Image ───────────────────────────────────────────────────────────────── */
+
+.pd-image-wrap {
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.pd-image {
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Info ────────────────────────────────────────────────────────────────── */
+
+.pd-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pd-category {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 12px;
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #7a7060;
+  margin-bottom: 16px;
+}
+
+.pd-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: #1c1a16;
+  line-height: 1.25;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.pd-price {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1c1a16;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Rating ──────────────────────────────────────────────────────────────── */
+
+.pd-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #d0c8b4;
+}
+
+.pd-stars {
+  font-size: 16px;
+  color: #c49a2a;
+  letter-spacing: 2px;
+}
+
+.pd-rating-text {
+  font-size: 14px;
+  color: #7a7060;
+}
+
+/* ── Description ─────────────────────────────────────────────────────────── */
+
+.pd-description {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4a4540;
+  margin: 0 0 32px;
+}
+
+/* ── Add to cart button ──────────────────────────────────────────────────── */
+
+.pd-add-btn {
+  align-self: flex-start;
+  padding: 14px 40px;
+  background: #2d4a2f;
+  border: 1px solid #2d4a2f;
+  border-radius: 2px;
+  color: #f5f0e8;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.pd-add-btn:hover {
+  background: #1c3320;
+  border-color: #1c3320;
+}
+
+/* ── Loading skeleton ────────────────────────────────────────────────────── */
+
+.pd-image-skeleton {
+  width: 100%;
+  height: 400px;
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  position: relative;
+  overflow: hidden;
+}
+
+.pd-image-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245, 240, 232, 0.6) 50%,
+    transparent 100%
+  );
+  animation: pd-shimmer 1.5s infinite;
+  transform: translateX(-100%);
+}
+
+.pd-info-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pd-skel-line {
+  height: 16px;
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pd-skel-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245, 240, 232, 0.6) 50%,
+    transparent 100%
+  );
+  animation: pd-shimmer 1.5s infinite;
+  transform: translateX(-100%);
+}
+
+.pd-skel-line--lg { width: 80%; height: 28px; }
+.pd-skel-line--sm { width: 40%; height: 14px; }
+.pd-skel-line--md { width: 25%; height: 22px; }
+.pd-skel-line--full { width: 100%; }
+
+@keyframes pd-shimmer {
+  to { transform: translateX(100%); }
+}
+
+/* ── Error state ─────────────────────────────────────────────────────────── */
+
+.pd-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.pd-error p {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #7a7060;
+  margin: 0;
+}
+
+.pd-error a {
+  display: inline-block;
+  padding: 12px 32px;
+  background: transparent;
+  border: 1px solid #2d4a2f;
+  border-radius: 2px;
+  color: #2d4a2f;
+  text-decoration: none;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background 0.15s, color 0.15s;
+}
+
+.pd-error a:hover {
+  background: #2d4a2f;
+  color: #f5f0e8;
+}
+
+/* ── Related products ────────────────────────────────────────────────────── */
+
+.pd-related {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid #d0c8b4;
+}
+
+.pd-related h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  color: #1c1a16;
+  margin: 0 0 28px;
+  letter-spacing: -0.01em;
+}
+
+.pd-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 3px;
+}
+
+.pd-related-card {
+  background: #ede8de;
+  border: 1px solid #d0c8b4;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.pd-related-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(28, 26, 22, 0.09);
+}
+
+.pd-related-img-wrap {
+  background: #d8d0c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.pd-related-img-wrap img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+}
+
+.pd-related-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  color: #1c1a16;
+  line-height: 1.3;
+  padding: 14px 16px 4px;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pd-related-price {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1c1a16;
+  padding: 0 16px 16px;
+  margin: 0;
+  margin-top: auto;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .product-detail-page {
+    padding: 40px 24px 80px;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pd-image-wrap {
+    padding: 24px;
+  }
+
+  .pd-image {
+    max-height: 360px;
+  }
+
+  .pd-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .pd-related-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .pd-related-img-wrap img {
+    height: 120px;
+  }
+}
