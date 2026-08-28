@@ -3,7 +3,7 @@
 /* ── Page layout ─────────────────────────────────────────────────────────── */
 
 .shop-page {
-  padding: 60px 80px 100px;
+  padding: 60px 0 100px;
   background: #f5f0e8;
   min-height: 100vh;
   font-family: 'Source Sans 3', system-ui, sans-serif;
@@ -225,7 +225,7 @@
 
 @media (max-width: 900px) {
   .shop-page {
-    padding: 40px 24px 80px;
+    padding: 40px 0 80px;
   }
 
   .shop-toolbar {

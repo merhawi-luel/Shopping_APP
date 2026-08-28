@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import useCart from "../hooks/useCart";
-import "./ProductDetail.css";
+import "../styles/ProductDetail.css";
 
 export default function ProductDetail() {
   const { id } = useParams();
