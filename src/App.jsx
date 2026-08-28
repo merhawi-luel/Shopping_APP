@@ -1,5 +1,5 @@
 import {Routes,Route} from "react-router-dom"
-import { CartProvider } from "./context/CartContext"
+import { CartProvider } from "./context/cartContext"
 
 import Cart from "./pages/Cart"
 import Home from  "./pages/Home"
