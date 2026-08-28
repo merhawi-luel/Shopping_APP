@@ -74,12 +74,21 @@ export default function ProductDetail() {
     );
   }
 
-  if (!product) return null;
+  if (!product) {
+     return (
+    <div className="product-detail-page">
+      <div className="pd-error">
+        <p>We couldn't find that product.</p>
+        <Link to="/shop">Back to shop</Link>
+      </div>
+    </div>
+  );
+  };
 
   return (
     <div className="product-detail-page">
       <Link to="/shop" className="pd-back">
-        ← Back to shop
+         Back to shop
       </Link>
 
       <div className="product-detail">

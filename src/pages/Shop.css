@@ -266,3 +266,28 @@
 .rating-number {
   color: #7a7060;
 }
+
+
+.view-details-link {
+  display: block;
+  box-sizing: border-box;
+  margin: 0 18px 8px;
+  padding: 10px 0;
+  width: calc(100% - 36px);
+  text-align: center;
+  background: transparent;
+  border: 1px solid #2d4a2f;
+  border-radius: 2px;
+  color: #2d4a2f;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.view-details-link:hover {
+  background: #2d4a2f;
+  color: #f5f0e8;
+}

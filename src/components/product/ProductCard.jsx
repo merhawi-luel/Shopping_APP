@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProductCard({ product, dispatch, inCart }) {
   const rounded = Math.round(product.rating?.rate ?? 0);
 
@@ -13,6 +15,9 @@ export default function ProductCard({ product, dispatch, inCart }) {
         </span>
         <span className="rating-number">{product.rating?.rate?.toFixed(1) ?? "0.0"}</span>
       </p>
+      <Link to={`/shop/${product.id}`} className="view-details-link">
+        View Details
+      </Link>
       <button onClick={() => dispatch({ type: "ADD_ITEM", payload: product })}>
         {inCart ? `In cart (${inCart.quantity})` : "Add to cart"}
       </button>
