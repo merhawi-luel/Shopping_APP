@@ -5,7 +5,7 @@ import SearchBar from "../components/shop/SearchBar";
 import CategoryFilter from "../components/shop/CategoryFilter";
 import SortSelect from "../components/shop/SortSelect";
 import ProductGrid from "../components/product/ProductGrid";
-import "../styles/shop.css";
+import "../styles/Shop.css";
 
 export default function Shop() {
   const [category, setCategory] = useState("All categories");
