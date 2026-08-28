@@ -16,7 +16,7 @@ export default function CartItem({ item, dispatch }) {
   return (
     <div className="cart-item">
       <div className="cart-item-info">
-        <h3>{item.name}</h3>
+        <h3>{item.title}</h3>
         <p>${item.price}</p>
       </div>
 
