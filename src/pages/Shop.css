@@ -3,7 +3,7 @@
 /* ── Page layout ─────────────────────────────────────────────────────────── */
 
 .shop-page {
-  padding: 60px 0 100px;
+  padding: 135px 0 100px;
   background: #f5f0e8;
   min-height: 100vh;
   font-family: 'Source Sans 3', system-ui, sans-serif;
@@ -15,12 +15,17 @@
 .shop-toolbar {
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 60px; /* Set this to your navbar's height */
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 999; /* Below navbar z-index if navbar is fixed */
   gap: 12px;
   padding: 16px 20px;
   background: #ede8de;
   border: 1px solid #d0c8b4;
   border-radius: 2px;
-  margin-bottom: 40px;
   flex-wrap: wrap;
 }
 
