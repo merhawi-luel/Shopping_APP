@@ -28,6 +28,10 @@ export default function Shop() {
 
   if (sort === "price-asc") filtered = [...filtered].sort((a, b) => a.price - b.price);
   if (sort === "price-desc") filtered = [...filtered].sort((a, b) => b.price - a.price);
+  if (sort === "name-asc") filtered = [...filtered].sort((a, b) => a.title.localeCompare(b.title));
+  if (sort === "name-desc") filtered = [...filtered].sort((a, b) => b.title.localeCompare(a.title));
+  if (sort === "rating-desc") filtered = [...filtered].sort((a, b) => b.rating.rate - a.rating.rate);
+  if (sort === "rating-asc") filtered = [...filtered].sort((a, b) => a.rating.rate - b.rating.rate);
 
   return (
     <div className="shop-page">

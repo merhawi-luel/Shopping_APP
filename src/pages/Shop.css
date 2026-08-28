@@ -249,3 +249,20 @@
     gap: 12px;
   }
 }
+.product-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 50x;
+  margin: 4px 0 8px;
+}
+
+.stars {
+  color: #c49a2a;
+  letter-spacing: 1px;
+}
+
+.rating-number {
+  color: #7a7060;
+}
