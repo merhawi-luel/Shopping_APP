@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
 import useCart from "../hooks/useCart";
 import SearchBar from "../components/shop/SearchBar";
@@ -8,7 +9,19 @@ import ProductGrid from "../components/product/ProductGrid";
 import "../styles/Shop.css";
 
 export default function Shop() {
-  const [category, setCategory] = useState("All categories");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCategory = searchParams.get("category") || "All categories";
+  const [category, setCategory] = useState(initialCategory);
+
+  function handleCategoryChange(value) {
+    setCategory(value);
+    if (value === "All categories") {
+      searchParams.delete("category");
+    } else {
+      searchParams.set("category", value);
+    }
+    setSearchParams(searchParams, { replace: true });
+  }
   const { products, loading, error, refetch } = useProducts(category);
   const { dispatch, cartItems } = useCart();
   const [search, setSearch] = useState("");
@@ -37,7 +50,7 @@ export default function Shop() {
     <div className="shop-page">
       <div className="shop-toolbar">
         <SearchBar value={search} onChange={setSearch} />
-        <CategoryFilter categories={categories} value={category} onChange={setCategory} />
+        <CategoryFilter categories={categories} value={category} onChange={handleCategoryChange} />
         <SortSelect value={sort} onChange={setSort} />
       </div>
 
